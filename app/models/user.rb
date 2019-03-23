@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	has_many :microposts, dependent: :destroy
 	before_save {email.downcase! }
 	validates :name, presence: true, length: { maximum: 50 }
 	validates :email, presence: true, length: { maximum: 255 }
@@ -14,5 +15,12 @@ class User < ApplicationRecord
 															BCrypt::Engine.cost
 		BCrypt::Password.create(string, cost: cost)
 	end
+
+	#Defines a proto-feed.
+	#See "Following users" for the full implementation
+	def feed
+		Micropost.where("user_id = ?", id)
+	end
+
 end
 
