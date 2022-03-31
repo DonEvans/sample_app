@@ -43,4 +43,4 @@ $ rails server
 For more information, see the
 [*Ruby on Rails Tutorial* book](https://www.railstutorial.org/book).
 
-3/30/22: Site at 
+3/30/22: Site at https://dry-caverns-47545.herokuapp.com/
